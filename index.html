@@ -1,78 +1,114 @@
-<script>
-    // BD Local expandido com novas imagens e categorias
-    const products = [
-        // CAMISETAS
-        {
-            id: 1,
-            name: "Camiseta Affliction Gothic Oversized",
-            category: "camisetas",
-            price: 189.90,
-            image: "90s Affliction Hip Hop Skull Graphic T Shirts Men Streetwear Goth Tops Casual Gothic Oversized Long.jpg",
-            description: "Camiseta de algodão pesado com estampa em silk gothic Y2K e caimento oversized."
-        },
-        {
-            id: 2,
-            name: "Camiseta Cyberpunk Skull Red Flame",
-            category: "camisetas",
-            price: 179.90,
-            image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600",
-            description: "Estampa de caveira cyber tribal em vermelho vibrante com corte boxer reto."
-        },
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER 2K // Streetwear & Y2K Aesthetics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-        // CALÇAS
-        {
-            id: 3,
-            name: "Calça Jeans Baggy Flame Tribal",
-            category: "calcas",
-            price: 299.90,
-            image: "thrift or pass google form.jpg",
-            description: "Jeans de lavagem vintage escura com bordados tribais no bolso traseiro."
-        },
-        {
-            id: 4,
-            name: "Calça Cargo Tactical Y2K Straps",
-            category: "calcas",
-            price: 329.90,
-            image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600",
-            description: "Calça utilitária com múltiplos bolsos, fitas reguláveis e tornozelas ajustáveis."
-        },
+    <div class="top-bar">
+        <span>★ FRETE GRÁTIS PARA TODO O BRASIL EM COMPRAS ACIMA DE R$ 299 ★ DROPS EXCLUSIVOS ★ CUPOM 'Y2K2000' PARA 10% OFF ★</span>
+    </div>
 
-        // SAPATOS
-        {
-            id: 5,
-            name: "Tênis Bape Sta Low Grey Camo",
-            category: "sapatos",
-            price: 649.90,
-            image: "download (10).jpg",
-            description: "Edição limitada em camuflado cinza com sola em borracha vulcanizada."
-        },
-        {
-            id: 6,
-            name: "Sapatênis Chunky Platform Y2K",
-            category: "sapatos",
-            price: 499.90,
-            image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=600",
-            description: "Silhueta robusta dos anos 2000 com sola alta e detalhes em camurça."
-        },
+    <header class="navbar">
+        <div class="logo">CYBER<span>2K</span></div>
+        <nav class="nav-links">
+            <a href="#">DROP ATUAL</a>
+            <a href="#">CALÇAS</a>
+            <a href="#">HOODIES</a>
+            <a href="#">ACESSÓRIOS</a>
+        </nav>
+        <div class="cart-btn">CARRINHO (0)</div>
+    </header>
 
-        // ACESSÓRIOS
-        {
-            id: 7,
-            name: "Gorro Beanie Cross Rhinestone",
-            category: "acessorios",
-            price: 89.90,
-            image: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600",
-            description: "Gorro de malha preta com aplicação frontal de cruz em strass brilhante."
-        },
-        {
-            id: 8,
-            name: "Cinto Star Studded Leather",
-            category: "acessorios",
-            price: 119.90,
-            image: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600",
-            description: "Cinto em couro sintético escuro cravejado de rebites em formato de estrela Y2K."
-        }
-    ];
+    <section class="hero">
+        <div class="hero-content">
+            <span class="tag">NEW DROP // 2000s VIBE</span>
+            <h1>STREET AESTHETICS & NOSTALGIA</h1>
+            <p>Roupas oversized, jeans baggys e a estética que marcou o início do milênio adaptada pras ruas de hoje.</p>
+            <a href="#produtos" class="btn-main">GARANTIR O SEU DROP</a>
+        </div>
+    </section>
 
-    // Restante da lógica do script mantém-se igual (renderProducts, cart, modal)
-</script>
+    <main class="container" id="produtos">
+        <h2 class="section-title">⚡ DROPS DISPONÍVEIS ⚡</h2>
+        
+        <div class="grid-produtos">
+
+            <div class="card-produto">
+                <div class="badge">BEST SELLER</div>
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop" alt="Jaqueta Leather Y2K">
+                </div>
+                <div class="info-produto">
+                    <h3>Jaqueta Couro Oversized "Cyber '00"</h3>
+                    <p class="categoria">Outerwear</p>
+                    <div class="preco-box">
+                        <span class="preco-antigo">R$ 450,00</span>
+                        <span class="preco">R$ 389,90</span>
+                    </div>
+                    <button class="btn-comprar">ADICIONAR AO CARRINHO</button>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <div class="badge neon">HOT</div>
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1542272604-780c36856d66?q=80&w=600&auto=format&fit=crop" alt="Calça Jeans Baggy">
+                </div>
+                <div class="info-produto">
+                    <h3>Calça Jeans Baggy Cyber Tribal</h3>
+                    <p class="categoria">Bottoms</p>
+                    <div class="preco-box">
+                        <span class="preco">R$ 279,90</span>
+                    </div>
+                    <button class="btn-comprar">ADICIONAR AO CARRINHO</button>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=600&auto=format&fit=crop" alt="Hoodie Oversized">
+                </div>
+                <div class="info-produto">
+                    <h3>Hoodie Acid Wash Star Y2K</h3>
+                    <p class="categoria">Street Hoodies</p>
+                    <div class="preco-box">
+                        <span class="preco">R$ 249,90</span>
+                    </div>
+                    <button class="btn-comprar">ADICIONAR AO CARRINHO</button>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <div class="badge">LIMITED</div>
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=600&auto=format&fit=crop" alt="Camisa Graphic Tee">
+                </div>
+                <div class="info-produto">
+                    <h3>Camiseta Graphic Tee "Futurism 1999"</h3>
+                    <p class="categoria">T-Shirts</p>
+                    <div class="preco-box">
+                        <span class="preco">R$ 139,90</span>
+                    </div>
+                    <button class="btn-comprar">ADICIONAR AO CARRINHO</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">CYBER<span>2K</span></div>
+            <p>© 2026 CYBER2K STREETWEAR. TODOS OS DIREITOS RESERVADOS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

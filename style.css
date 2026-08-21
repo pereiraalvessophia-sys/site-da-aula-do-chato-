@@ -1,25 +1,302 @@
-/* AJUSTES PARA MAIOR DIVERSIDADE DE PRODUTOS */
-
-/* Garantir carregamento suave das novas imagens */
-.product-img-wrapper img {
-    background-color: var(--creme-escuro);
-    image-rendering: -webkit-optimize-contrast;
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Efeito ao passar o mouse nas imagens externas/novas */
-.product-card:hover .product-img-wrapper img {
-    filter: brightness(0.95);
+body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
-/* Suporte para novas tags de categoria */
-.product-tag {
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+/* MARQUEE RUNNER TOP */
+.top-bar {
+    background: #ccff00; /* Neon Green Y2K */
+    color: #000;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 8px 0;
+    text-align: center;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-/* Ajuste no Grid para acomodar mais cards de forma fluida */
-@media (min-width: 1024px) {
-    .products-grid {
-        grid-template-columns: repeat(4, 1fr);
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #121212;
+    border-bottom: 2px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.logo span {
+    color: #ccff00;
+}
+
+.nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ccff00;
+    text-shadow: 0 0 8px #ccff00;
+}
+
+.cart-btn {
+    background: #ff0055; /* Magenta Neon */
+    color: #fff;
+    padding: 10px 18px;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border: none;
+    box-shadow: 3px 3px 0px #fff;
+    transition: 0.2s;
+}
+
+.cart-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px #fff;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(13,13,13,1)), 
+                url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600&auto=format&fit=crop') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero .tag {
+    background: #ccff00;
+    color: #000;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0px #ff0055;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.btn-main {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    padding: 15px 35px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    text-decoration: none;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 0px #ccff00;
+    transition: 0.2s;
+}
+
+.btn-main:hover {
+    background: #ccff00;
+    box-shadow: 7px 7px 0px #ff0055;
+    transform: translate(-2px, -2px);
+}
+
+/* VITRINE */
+.container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* CARDS DE PRODUTO */
+.card-produto {
+    background: #181818;
+    border: 1px solid #333;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.card-produto:hover {
+    border-color: #ccff00;
+    transform: translateY(-5px);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 8px;
+    z-index: 2;
+}
+
+.badge.neon {
+    background: #ff0055;
+    border: none;
+}
+
+.img-box {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background-color: #222;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: 0.4s;
+}
+
+.card-produto:hover .img-box img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.info-produto {
+    padding: 20px;
+}
+
+.info-produto h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.categoria {
+    color: #777;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.preco-box {
+    margin-bottom: 15px;
+}
+
+.preco-antigo {
+    text-decoration: line-through;
+    color: #666;
+    font-size: 0.9rem;
+    margin-right: 8px;
+}
+
+.preco {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ccff00;
+}
+
+.btn-comprar {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-comprar:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* FOOTER */
+footer {
+    border-top: 2px solid #222;
+    padding: 40px 20px;
+    text-align: center;
+    background: #121212;
+    margin-top: 80px;
+}
+
+footer p {
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 15px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero h1 {
+        font-size: 2rem;
     }
 }
