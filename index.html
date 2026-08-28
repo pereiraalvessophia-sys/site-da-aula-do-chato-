@@ -3,254 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>POOL GOSMA | Cosméticos Liminares</title>
-  <style>
-    :root {
-      --pool-tile: #e0f2fe;
-      --pool-grid: #bae6fd;
-      --pool-water: #38bdf8;
-      --pool-deep: #0284c7;
-      --text-main: #0c4a6e;
-      --white-trans: rgba(255, 255, 255, 0.85);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--pool-tile);
-      background-image: 
-        linear-gradient(var(--pool-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--pool-grid) 1px, transparent 1px);
-      background-size: 30px 30px;
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-      background: var(--white-trans);
-      padding: 20px 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
-      border: 2px solid white;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      letter-spacing: 4px;
-      color: var(--pool-deep);
-      text-transform: uppercase;
-    }
-
-    p.subtitle {
-      font-style: italic;
-      opacity: 0.8;
-    }
-
-    /* Container de Produtos */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      width: 100%;
-      max-width: 1000px;
-    }
-
-    .product-card {
-      background: var(--white-trans);
-      border-radius: 20px;
-      padding: 20px;
-      border: 2px solid white;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-
-    /* Área Interativa da Gosma */
-    .gosma-container {
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle at 30% 30%, #ffffff, var(--pool-water));
-      border-radius: 50%;
-      margin: 15px 0;
-      cursor: grab;
-      box-shadow: inset -5px -5px 15px rgba(2, 132, 199, 0.4), 0 10px 15px rgba(56, 189, 248, 0.3);
-      transition: transform 0.1s ease, border-radius 0.3s ease, filter 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      font-weight: bold;
-      color: white;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-
-    .gosma-container:active {
-      cursor: grabbing;
-      transform: scale(1.15) rotate(5deg);
-      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    }
-
-    /* Variações de cores das Gosmas */
-    .gosma-rosa {
-      background: radial-gradient(circle at 30% 30%, #ffffff, #f472b6);
-      box-shadow: inset -5px -5px 15px rgba(219, 39, 119, 0.4), 0 10px 15px rgba(244, 114, 182, 0.3);
-    }
-
-    .gosma-verde {
-      background: radial-gradient(circle at 30% 30%, #ffffff, #34d399);
-      box-shadow: inset -5px -5px 15px rgba(5, 150, 105, 0.4), 0 10px 15px rgba(52, 211, 153, 0.3);
-    }
-
-    /* Controles de Interação */
-    .controls {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    label {
-      font-size: 0.85rem;
-      font-weight: bold;
-    }
-
-    input[type="range"] {
-      accent-color: var(--pool-deep);
-      cursor: pointer;
-    }
-
-    .btn-buy {
-      background: var(--pool-deep);
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 15px;
-      width: 100%;
-      transition: background 0.2s;
-    }
-
-    .btn-buy:hover {
-      background: #0369a1;
-    }
-
-    /* Modais e Feedback */
-    .cart-status {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: white;
-      padding: 15px 25px;
-      border-radius: 30px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      font-weight: bold;
-      border: 2px solid var(--pool-water);
-    }
-  </style>
+  <title>AURA — Cosméticos Naturais</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>POOL GOSMA</h1>
-    <p class="subtitle">Hidratação liminar para peles surreais</p>
+  <header class="header">
+    <div class="logo">AURA</div>
+    <nav class="nav">
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+    <div class="cart-icon" onclick="toggleCarrinho()">
+      🛒 <span id="cart-count">0</span>
+    </div>
   </header>
 
-  <main class="products-grid">
-    
-    <div class="product-card">
-      <h2>Néctar Azulejo</h2>
-      <p>Essência de água estática</p>
-      
-      <div class="gosma-container" id="gosma1" onclick="apertarGosma(this)">Aperte!</div>
-      
-      <div class="controls">
-        <label for="viscosidade1">Viscosidade / Elasticidade:</label>
-        <input type="range" id="viscosidade1" min="10" max="50" value="30" oninput="alterarViscosidade(this, 'gosma1')">
-      </div>
+  <section class="hero">
+    <h1>Sua pele, sua essência.</h1>
+    <p>Cosméticos minimalistas com ingredientes 100% orgânicos.</p>
+  </section>
 
-      <button class="btn-buy" onclick="adicionarAoCarrinho('Néctar Azulejo')">Adicionar ao Carrinho - R$ 45,00</button>
+  <section class="produtos" id="produtos">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1608248597349-4c11e6879266?w=400" alt="Sérum Facial">
+      <h3>Sérum Iluminador</h3>
+      <p>Com Vitamina C e Ácido Hialurônico.</p>
+      <span class="preco">R$ 89,00</span>
+      <button onclick="adicionarAoCarrinho('Sérum Iluminador')">Adicionar ao Carrinho</button>
     </div>
 
-    <div class="product-card">
-      <h2>Soro Rosa Liminar</h2>
-      <p>Brilho difuso e textura macia</p>
-      
-      <div class="gosma-container gosma-rosa" id="gosma2" onclick="apertarGosma(this)">Aperte!</div>
-      
-      <div class="controls">
-        <label for="viscosidade2">Viscosidade / Elasticidade:</label>
-        <input type="range" id="viscosidade2" min="10" max="50" value="30" oninput="alterarViscosidade(this, 'gosma2')">
-      </div>
-
-      <button class="btn-buy" onclick="adicionarAoCarrinho('Soro Rosa Liminar')">Adicionar ao Carrinho - R$ 52,00</button>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400" alt="Creme Hidratante">
+      <h3>Hidratante Botânico</h3>
+      <p>Nutrição profunda com óleo de jojoba.</p>
+      <span class="preco">R$ 74,00</span>
+      <button onclick="adicionarAoCarrinho('Hidratante Botânico')">Adicionar ao Carrinho</button>
     </div>
 
-    <div class="product-card">
-      <h2>Gel Clorado Profundo</h2>
-      <p>Refrescância dos níveis inferiores</p>
-      
-      <div class="gosma-container gosma-verde" id="gosma3" onclick="apertarGosma(this)">Aperte!</div>
-      
-      <div class="controls">
-        <label for="viscosidade3">Viscosidade / Elasticidade:</label>
-        <input type="range" id="viscosidade3" min="10" max="50" value="30" oninput="alterarViscosidade(this, 'gosma3')">
-      </div>
-
-      <button class="btn-buy" onclick="adicionarAoCarrinho('Gel Clorado Profundo')">Adicionar ao Carrinho - R$ 38,00</button>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400" alt="Tônico Facial">
+      <h3>Tônico Suave</h3>
+      <p>Equilibra o pH com água de rosas.</p>
+      <span class="preco">R$ 58,00</span>
+      <button onclick="adicionarAoCarrinho('Tônico Suave')">Adicionar ao Carrinho</button>
     </div>
+  </section>
 
-  </main>
-
-  <div class="cart-status" id="cart">
-    🛒 Carrinho: <span id="cart-count">0</span> itens
+  <div class="modal-carrinho" id="modalCarrinho">
+    <div class="conteudo-modal">
+      <h2>Seu Carrinho</h2>
+      <ul id="itens-carrinho"></ul>
+      <button class="btn-fechar" onclick="toggleCarrinho()">Fechar</button>
+    </div>
   </div>
 
   <script>
-    let totalItens = 0;
+    let carrinho = [];
 
-    // Função para interagir ao clicar na gosma
-    function apertarGosma(elemento) {
-      // Muda a forma da gosma aleatoriamente
-      const r1 = Math.floor(Math.random() * 40) + 30;
-      const r2 = Math.floor(Math.random() * 40) + 30;
-      const r3 = Math.floor(Math.random() * 40) + 30;
-      const r4 = Math.floor(Math.random() * 40) + 30;
-      
-      elemento.style.borderRadius = `${r1}% ${r2}% ${r3}% ${r4}%`;
+    function adicionarAoCarrinho(produto) {
+      carrinho.push(produto);
+      document.getElementById('cart-count').innerText = carrinho.length;
+      atualizarModal();
     }
 
-    // Função para alterar a deformação via slider
-    function alterarViscosidade(slider, idGosma) {
-      const gosma = document.getElementById(idGosma);
-      const val = slider.value;
-      gosma.style.filter = `blur(${val / 10}px) hue-rotate(${val * 2}deg)`;
+    function toggleCarrinho() {
+      const modal = document.getElementById('modalCarrinho');
+      modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
     }
 
-    // Adiciona itens ao carrinho com feedback visual
-    function adicionarAoCarrinho(nomeProduto) {
-      totalItens++;
-      document.getElementById('cart-count').innerText = totalItens;
-      alert(`Você adicionou "${nomeProduto}" ao seu carrinho.`);
+    function atualizarModal() {
+      const lista = document.getElementById('itens-carrinho');
+      lista.innerHTML = '';
+      if (carrinho.length === 0) {
+        lista.innerHTML = '<li>O carrinho está vazio.</li>';
+      } else {
+        carrinho.forEach(item => {
+          const li = document.createElement('li');
+          li.innerText = item;
+          lista.appendChild(li);
+        });
+      }
     }
   </script>
 </body>
